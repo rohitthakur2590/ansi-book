@@ -1,6 +1,8 @@
 network:
-  - ./**
+  - ./**/*
 collections:
-  - ./**
+  - ./**/*
 vyos:
   - vyos/**/*
+ios:
+  - ios/**/*
