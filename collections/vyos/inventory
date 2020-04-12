@@ -1,0 +1,12 @@
+[vyos]
+192.168.56.101
+
+[vyos:vars]
+ansible_network_os=vyos.vyos.vyos
+ansible_ssh_user=vyos
+ansible_ssh_pass=vyos
+ansible_connection=ansible.netcommon.network_cli
+ansible_become=yes
+
+
+

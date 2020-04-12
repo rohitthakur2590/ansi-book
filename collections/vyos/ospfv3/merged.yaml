@@ -1,0 +1,23 @@
+- hosts: vyos
+  gather_facts: false
+  connection: network_cli
+  collections:
+    - vyos.vyos
+  tasks:
+   - name: ospfv3
+     vyos.vyos.vyos_ospfv3: &id001
+       config:
+         - redistribute:
+             - route_type: 'bgp'
+           parameters:
+             router_id: '10.10.10.10'
+           ospf_area:
+             - area: '0.0.0.0'
+               range:
+                 - address: '2001:db8:1::/64'
+                 - address: '2001:db8:2::/64'
+                 - address: '2001:db8:3::/64'
+             - area: '2'
+               range:
+                 - address: '2001:db8:4::/64'
+       state: merged
