@@ -1,9 +1,11 @@
 network:
-  - .collections/vyos/**/*
-  - .collections/ios/**/*
+  - collections/vyos/**/*
+  - collections/ios/**/*
 collections:
-  - .collections/**/*
+  - collections/**/*
 vyos:
   - collections/vyos/**/*
 ios:
   - collections/ios/**/*
+setup:
+  - setup/**/*
