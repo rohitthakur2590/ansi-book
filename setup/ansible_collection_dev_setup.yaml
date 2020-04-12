@@ -1,0 +1,27 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: yes
+
+  tasks:
+   - name: create directory if they don't exist
+     file:
+       path: "{{ item }}"
+       state: directory
+       mode: 0755
+     with_items:
+       -  ~/dev_collections/collections/ansible_collections/ansible/netcommon/
+       -  ~/dev_collections/collections/ansible_collections/ansible-base/
+       -  ~/dev_collections/collections/ansible_collections/vyos/vyos
+
+   - name: Clone git repository
+     git:
+       repo: "{{ item.repo }}"
+       dest: "{{ item.path }}" 
+     with_items:
+      - { repo: 'git@github.com:rohitthakur2590/vyos.git', path: '~/dev_collections/collections/ansible_collections/vyos/vyos/' }
+      - { repo: 'git@github.com:rohitthakur2590/ansible-base.git', path: '~/dev_collections/collections/ansible_collections/ansible-base/' }
+      - { repo: 'git@github.com:rohitthakur2590/netcommon.git', path: '~/dev_collections/collections/ansible_collections/ansible/netcommon/' }
+
+
+
