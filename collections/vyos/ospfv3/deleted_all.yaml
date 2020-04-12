@@ -1,0 +1,10 @@
+- hosts: vyos
+  gather_facts: false
+  connection: network_cli
+  collections:
+    - vyos.vyos
+  tasks:
+   - name: ospfv3
+     vyos.vyos.vyos_ospfv3: &id001
+       config:
+       state: deleted

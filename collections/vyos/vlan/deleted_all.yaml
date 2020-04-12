@@ -1,0 +1,14 @@
+- hosts: vyos
+  gather_facts: false
+  connection: network_cli
+  collections:
+    - vyos.vyos
+  tasks:
+   - name: vlan
+     vyos.vyos.vyos_vlan: &id001
+       vlan_id: 100
+       interfaces:
+         - eth0
+         - eth1
+       state: absent
+                   

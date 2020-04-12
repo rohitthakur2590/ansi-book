@@ -1,0 +1,25 @@
+- hosts: vyos
+  gather_facts: false
+  connection: network_cli
+  collections:
+    - vyos.vyos
+  tasks:
+    - name: Merge the provided configuration with the existing running configuration for VyOS device
+      register: result
+      vyos.vyos.vyos_l3_interfaces: &id001
+        config:
+          - name: eth3
+            ipv4:
+              - address: 192.0.2.10/24
+            ipv6:
+              - address: 2001:db8::10/32
+          - name: eth2
+            ipv4:
+              - address: 198.51.100.10/24
+            vifs:
+              - vlan_id: 101
+                ipv4:
+                  - address: 198.51.100.130/25
+                ipv6:
+                  - address: 2001:db8::20/32
+        state: merged

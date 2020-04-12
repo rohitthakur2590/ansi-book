@@ -1,0 +1,12 @@
+- hosts: vyos
+  gather_facts: false
+  connection: network_cli
+  collections:
+    - vyos.vyos
+  tasks:
+   - name: vyos_config
+     vyos.vyos.vyos_config: &id001
+       lines:
+         - delete interfaces ethernet eth0 vif 100
+         - delete interfaces ethernet eth1 vif 100
+                   

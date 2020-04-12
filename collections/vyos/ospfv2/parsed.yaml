@@ -1,0 +1,10 @@
+- hosts: vyos
+  gather_facts: false
+  connection: network_cli
+  collections:
+    - vyos.vyos
+  tasks:
+   - name: ospfv2
+     vyos.vyos.vyos_ospfv2: &id001
+       running_config: "{{ lookup('file', 'vyos_ospfv2.cfg') }}"
+       state: parsed

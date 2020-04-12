@@ -1,0 +1,9 @@
+- hosts: vyos
+  gather_facts: false
+  connection: network_cli
+  collections:
+    - vyos.vyos
+  tasks:
+   - name: ospfv2
+     vyos.vyos.vyos_ospfv2: &id001
+       state: gathered

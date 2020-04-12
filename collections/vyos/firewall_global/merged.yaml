@@ -1,0 +1,22 @@
+- hosts: vyos
+  gather_facts: false
+  connection: network_cli
+  collections:
+    - vyos.vyos
+  tasks:
+   - name: firewall_global
+     vyos.vyos.vyos_firewall_global: &id001
+       config:
+          validation: strict
+          config_trap: true
+          log_martians: true
+          syn_cookies: true
+          twa_hazards_protection: true
+          ping:
+            all: true
+            broadcast: true
+       state: merged
+     register: output
+     failed_when: "{{ output['before'].config_trap == true }}"
+   - debug:
+       var: output['before']['config_trap']
