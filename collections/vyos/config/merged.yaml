@@ -7,12 +7,12 @@
    - name: l3_interfaces
      vyos.vyos.vyos_l3_interfaces: &id001
        config:
-         - name: eth0
+         - name: eth5
            vifs:
              - vlan_id: 101
                ipv4:
                  - address: 192.0.2.77/28
-         - name: eth1
+         - name: eth5
            ipv4:
              - address: 203.0.113.65/26
            vifs:
