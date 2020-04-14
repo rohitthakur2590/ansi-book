@@ -1,0 +1,16 @@
+- hosts: vyos
+  gather_facts: false
+  connection: network_cli
+  collections:
+    - vyos.vyos
+  tasks:
+   - name: vyos_user
+     vyos.vyos.vyos_user:
+       name: auth_user
+       role: admin
+       state: present
+       configured_password: pass123
+       name: auth_user2
+       role: admin
+       state: present
+       configured_password: pass1234

@@ -1,0 +1,11 @@
+- hosts: vyos
+  gather_facts: false
+  connection: network_cli
+  collections:
+    - vyos.vyos
+  tasks:
+   - name: delete vyos_user
+     register: result
+     vyos.vyos.vyos_user:
+       name: auth_user99
+       state: absent
