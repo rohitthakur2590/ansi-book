@@ -7,5 +7,5 @@
    - name: delete vyos_user
      register: result
      vyos.vyos.vyos_user:
-       name: auth_user99
+       name: auth_user
        state: absent
