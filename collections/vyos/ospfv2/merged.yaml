@@ -63,6 +63,18 @@
                range:
                  - address: '1.1.2.0/24'
                    cost: 10
+                 - address: '2.2.2.0/24'
+                   cost: 12
+               virtual_link:
+                 - address: '1.1.1.1'
+                   authentication:
+                     md5:
+                      - key_id: 1
+                        md5_key: '05b7a99be72e3fe6'
+
+                 - address: '1.1.1.2'
+                 - address: '1.1.1.3'
+                 - address: '1.1.1.4'
                    
 
        state: merged
