@@ -7,7 +7,7 @@
    - name: ospfv2
      vyos.vyos.vyos_ospfv2: &id001
        config:
-         - log_adjacency_changes: 'detail'
+           log_adjacency_changes: 'detail'
            max_metric:
            default_information:
            mpls_te:
@@ -15,6 +15,6 @@
            redistribute:
            parameters:
            passive_interface:
-           ospf_area:
+           areas:
 
        state: deleted
