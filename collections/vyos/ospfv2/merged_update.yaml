@@ -1,0 +1,33 @@
+- hosts: vyos
+  gather_facts: false
+  connection: network_cli
+  collections:
+    - vyos.vyos
+  tasks:
+   - name: ospfv2
+     vyos.vyos.vyos_ospfv2: &id001
+       config:
+           areas:
+             - area_id: '2'
+               area_type:
+                 normal: true
+               authentication: "plaintext-password"
+               shortcut: 'enable'
+             - area_id: '3'
+               area_type:
+                 nssa:
+                  set: true
+             - area_id: '4'
+               area_type:
+                 stub:
+                  set: false
+               network:
+                 - address: '192.0.2.0/24'
+                 - address: '192.0.22.0/24'
+                 - address: '192.0.32.0/24'
+               range:
+                 - address: '192.0.3.0/24'
+                   cost: 10
+                 - address: '192.0.4.0/24'
+                   cost: 12
+       state: merged
