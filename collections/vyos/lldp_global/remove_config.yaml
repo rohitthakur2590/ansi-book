@@ -1,0 +1,11 @@
+- hosts: vyos
+  gather_facts: false
+  connection: network_cli
+  collections:
+    - vyos.vyos
+  tasks:
+    - name: Remove Config
+      vars:
+        lines: "delete service lldp interface\ndelete service lldp\n"
+      ansible.netcommon.cli_config:
+        config: '{{ lines }}'

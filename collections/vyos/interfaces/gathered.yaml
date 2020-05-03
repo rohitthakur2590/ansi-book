@@ -4,6 +4,6 @@
   collections:
     - vyos.vyos
   tasks:
-   - name: layer-2 interfaces
-     vyos.vyos.vyos_l3_interfaces: &id001
+   - name: interfaces
+     vyos.vyos.vyos_interfaces: &id001
        state: gathered

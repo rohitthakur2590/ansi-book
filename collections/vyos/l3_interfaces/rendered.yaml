@@ -4,65 +4,17 @@
   collections:
     - vyos.vyos
   tasks:
-   - name: ospfv2
-     vyos.vyos.vyos_ospfv2: &id001
+   - name: layer-3 interfaces
+     vyos.vyos.vyos_l3_interfaces: &id001
        config:
-         - log_adjacency_changes: 'detail'
-           max_metric:
-             router_lsa:
-               administrative: true
-               on_shutdown: 10
-               on_startup: 10
-           default_information:
-             originate:
-               always: true
-               metric: 10
-               metric_type: 2
-               route_map: 'ingress'
-           mpls_te:
-             enabled: true
-             router_address: '9.9.9.9'
-           auto_cost:
-             reference_bandwidth: 2
-           neighbor:
-             - neighbor_id: '7.7.7.7'
-               poll_interval: 10
-               priority: 2
-           redistribute:
-             - route_type: 'bgp'
-               metric: 10
-               metric_type: 2
-               # route_map: 'ingress'
-           passive_interface:
-             - 'eth1'
-             - 'eth2'
-             - 'eth3'
-           parameters:
-             router_id: '22.22.22.22'
-             opaque_lsa: true
-             rfc1583_compatibility: true
-             abr_type: 'cisco'
-
-           ospf_area:
-             - area: '2'
-               area_type:
-                 normal: true
-               authentication: "plaintext-password"
-               shortcut: 'enable'
-             - area: '3'
-               area_type:
-                 nssa:
-                  default_cost: 30
-             - area: '4'
-               area_type:
-                 stub:
-                  default_cost: 20
-               network:
-                 - address: '11.11.13.0/24'
-                 - address: '11.11.14.0/24'
-                 - address: '11.11.15.0/24'
-                 - address: '11.11.16.0/24'
-               range:
-                 - address: '1.1.2.0/24'
-                   cost: 10
+          - name: eth1
+            ipv4:
+              - address: 192.0.2.14/24
+          - name: eth2
+            ipv4:
+              - address: 192.0.2.10/24
+              - address: 192.0.2.11/24
+            ipv6:
+              - address: 2001:db8::10/32
+              - address: 2001:db8::12/32
        state: rendered
