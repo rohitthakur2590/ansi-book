@@ -5,5 +5,6 @@
     - vyos.vyos
   tasks:
    - name: layer-2 interfaces
-     vyos.vyos.vyos_l3_interfaces: &id001
+     vyos.vyos.vyos_lldp_interfaces: &id001
+       config:
        state: gathered

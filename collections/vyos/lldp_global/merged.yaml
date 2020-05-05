@@ -1,0 +1,15 @@
+- hosts: vyos
+  gather_facts: false
+  connection: network_cli
+  collections:
+    - vyos.vyos
+  tasks:
+    - name: Merge the provided configuration with the existing running configuration for VyOS device
+      register: result
+      vyos.vyos.vyos_lldp_global: &id001
+        config:
+          legacy_protocols:
+            - fdp
+            - cdp
+          address: 192.0.2.11
+        state: merged

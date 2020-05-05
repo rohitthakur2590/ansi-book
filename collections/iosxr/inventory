@@ -1,0 +1,10 @@
+[iosxr]
+<ipaddress>
+
+[iosxr:vars]
+ansible_network_os=cisco.iosxr.iosxr
+ansible_user=ansible
+ansible_ssh_user=root
+ansible_connection=ansible.netcommon.network_cli
+ansible_ssh_pass=****
+ansible_ssh_port: 22

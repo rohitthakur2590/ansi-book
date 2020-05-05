@@ -5,6 +5,6 @@
     - vyos.vyos
   tasks:
    - name: ospfv2
-     vyos.vyos.vyos_l3_interfaces: &id001
-       running_config: "{{ lookup('file', 'vyos_l3_interfaces.cfg') }}"
+     vyos.vyos.vyos_lag_interfaces: &id001
+       running_config: "{{ lookup('file', 'vyos_lag_interfaces.cfg') }}"
        state: parsed

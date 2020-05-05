@@ -1,0 +1,325 @@
+2020-05-05 16:12:49,408 p=12469 u=rothakur n=ansible | [WARNING]: You are running the development version of Ansible. You should only run Ansible from "devel" if you are modifying the Ansible engine, or trying
+out features under development. This is a rapidly changing source of code and can become unstable at any point.
+
+2020-05-05 16:12:49,410 p=12469 u=rothakur n=ansible | ansible-playbook 2.10.0.dev0
+  config file = /home/rothakur/ansi-book/collections/iosxr/ansible.cfg
+  configured module search path = ['/home/rothakur/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /home/rothakur/ansible-collections/collections/ansible_collections/ansible-base/lib/ansible
+  executable location = /home/rothakur/ansible-collections/collections/ansible_collections/ansible-base/bin/ansible-playbook
+  python version = 3.7.3 (default, Mar 27 2019, 22:11:17) [GCC 7.3.0]
+2020-05-05 16:12:49,410 p=12469 u=rothakur n=ansible | Using /home/rothakur/ansi-book/collections/iosxr/ansible.cfg as config file
+2020-05-05 16:12:49,431 p=12469 u=rothakur n=ansible | host_list declined parsing /home/rothakur/ansi-book/collections/iosxr/inventory as it did not pass its verify_file() method
+2020-05-05 16:12:49,431 p=12469 u=rothakur n=ansible | script declined parsing /home/rothakur/ansi-book/collections/iosxr/inventory as it did not pass its verify_file() method
+2020-05-05 16:12:49,431 p=12469 u=rothakur n=ansible | auto declined parsing /home/rothakur/ansi-book/collections/iosxr/inventory as it did not pass its verify_file() method
+2020-05-05 16:12:49,433 p=12469 u=rothakur n=ansible | toml declined parsing /home/rothakur/ansi-book/collections/iosxr/inventory as it did not pass its verify_file() method
+2020-05-05 16:12:49,434 p=12469 u=rothakur n=ansible | [WARNING]:  * Failed to parse /home/rothakur/ansi-book/collections/iosxr/inventory with yaml plugin: Syntax Error while loading YAML.   expected '<document
+start>', but found '<scalar>'  The error appears to be in '/home/rothakur/ansi-book/collections/iosxr/inventory': line 2, column 1, but may be elsewhere in
+the file depending on the exact syntax problem.  The offending line appears to be:  [iosxr] 38.145.34.22 ^ here
+
+2020-05-05 16:12:49,434 p=12469 u=rothakur n=ansible |   File "/home/rothakur/ansible-collections/collections/ansible_collections/ansible-base/lib/ansible/inventory/manager.py", line 287, in parse_source
+    plugin.parse(self._inventory, self._loader, source, cache=cache)
+  File "/home/rothakur/ansible-collections/collections/ansible_collections/ansible-base/lib/ansible/plugins/inventory/yaml.py", line 105, in parse
+    raise AnsibleParserError(e)
+
+2020-05-05 16:12:49,434 p=12469 u=rothakur n=ansible | [WARNING]:  * Failed to parse /home/rothakur/ansi-book/collections/iosxr/inventory with ini plugin: /home/rothakur/ansi-book/collections/iosxr/inventory:13:
+Expected key=value, got: ansible_ssh_port: 22
+
+2020-05-05 16:12:49,434 p=12469 u=rothakur n=ansible |   File "/home/rothakur/ansible-collections/collections/ansible_collections/ansible-base/lib/ansible/inventory/manager.py", line 287, in parse_source
+    plugin.parse(self._inventory, self._loader, source, cache=cache)
+  File "/home/rothakur/ansible-collections/collections/ansible_collections/ansible-base/lib/ansible/plugins/inventory/ini.py", line 138, in parse
+    raise AnsibleParserError(e)
+
+2020-05-05 16:12:49,434 p=12469 u=rothakur n=ansible | [WARNING]: Unable to parse /home/rothakur/ansi-book/collections/iosxr/inventory as an inventory source
+
+2020-05-05 16:12:49,434 p=12469 u=rothakur n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2020-05-05 16:12:49,443 p=12469 u=rothakur n=ansible | [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+2020-05-05 16:12:49,642 p=12469 u=rothakur n=ansible | PLAYBOOK: merged.yaml ****************************************************************************************************************************************
+2020-05-05 16:12:49,643 p=12469 u=rothakur n=ansible | 1 plays in interfaces/merged.yaml
+2020-05-05 16:12:49,644 p=12469 u=rothakur n=ansible | PLAY [iosxr] *************************************************************************************************************************************************
+2020-05-05 16:12:49,681 p=12469 u=rothakur n=ansible | META: ran handlers
+2020-05-05 16:12:49,684 p=12469 u=rothakur n=ansible | TASK [Merge provided configuration with device configuration] ************************************************************************************************
+2020-05-05 16:12:49,684 p=12469 u=rothakur n=ansible | task path: /home/rothakur/ansi-book/collections/iosxr/interfaces/merged.yaml:7
+2020-05-05 16:12:50,501 p=12475 u=rothakur n=ansible | network_os is set to cisco.iosxr.iosxr
+2020-05-05 16:12:50,506 p=12475 u=rothakur n=ansible | <38.145.34.22> ESTABLISH LOCAL CONNECTION FOR USER: rothakur
+2020-05-05 16:12:50,506 p=12475 u=rothakur n=ansible | <38.145.34.22> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /home/rothakur/.ansible/tmp/ansible-local-124697e50ixo5/ansible-tmp-1588675370.5062802-224108460971755 `" && echo ansible-tmp-1588675370.5062802-224108460971755="` echo /home/rothakur/.ansible/tmp/ansible-local-124697e50ixo5/ansible-tmp-1588675370.5062802-224108460971755 `" ) && sleep 0'
+2020-05-05 16:12:50,754 p=12475 u=rothakur n=ansible | <38.145.34.22> Attempting python interpreter discovery
+2020-05-05 16:12:50,755 p=12475 u=rothakur n=ansible | <38.145.34.22> EXEC /bin/sh -c 'echo PLATFORM; uname; echo FOUND; command -v '"'"'/usr/bin/python'"'"'; command -v '"'"'python3.7'"'"'; command -v '"'"'python3.6'"'"'; command -v '"'"'python3.5'"'"'; command -v '"'"'python2.7'"'"'; command -v '"'"'python2.6'"'"'; command -v '"'"'/usr/libexec/platform-python'"'"'; command -v '"'"'/usr/bin/python3'"'"'; command -v '"'"'python'"'"'; echo ENDFOUND && sleep 0'
+2020-05-05 16:12:50,762 p=12475 u=rothakur n=ansible | <38.145.34.22> EXEC /bin/sh -c '/usr/bin/python && sleep 0'
+2020-05-05 16:12:50,782 p=12475 u=rothakur n=ansible | Using module file /home/rothakur/ansible-collections/collections/ansible_collections/cisco/iosxr/plugins/modules/iosxr_interfaces.py
+2020-05-05 16:12:50,783 p=12475 u=rothakur n=ansible | <38.145.34.22> PUT /home/rothakur/.ansible/tmp/ansible-local-124697e50ixo5/tmpjmkdjdb3 TO /home/rothakur/.ansible/tmp/ansible-local-124697e50ixo5/ansible-tmp-1588675370.5062802-224108460971755/AnsiballZ_iosxr_interfaces.py
+2020-05-05 16:12:50,783 p=12475 u=rothakur n=ansible | <38.145.34.22> EXEC /bin/sh -c 'chmod u+x /home/rothakur/.ansible/tmp/ansible-local-124697e50ixo5/ansible-tmp-1588675370.5062802-224108460971755/ /home/rothakur/.ansible/tmp/ansible-local-124697e50ixo5/ansible-tmp-1588675370.5062802-224108460971755/AnsiballZ_iosxr_interfaces.py && sleep 0'
+2020-05-05 16:12:50,790 p=12475 u=rothakur n=ansible | <38.145.34.22> EXEC /bin/sh -c '/usr/bin/python /home/rothakur/.ansible/tmp/ansible-local-124697e50ixo5/ansible-tmp-1588675370.5062802-224108460971755/AnsiballZ_iosxr_interfaces.py && sleep 0'
+2020-05-05 16:12:50,958 p=12480 u=rothakur n=ansible | <38.145.34.22> ESTABLISH PARAMIKO SSH CONNECTION FOR USER: ansible on PORT 22 TO 38.145.34.22
+2020-05-05 16:12:51,260 p=12480 u=rothakur n=p=12480 u=rothakur | paramiko [38.145.34.22] | starting thread (client mode): 0x7332b70
+2020-05-05 16:12:51,260 p=12480 u=rothakur n=p=12480 u=rothakur | paramiko [38.145.34.22] | Local version/idstring: SSH-2.0-paramiko_2.7.1
+2020-05-05 16:12:51,769 p=12480 u=rothakur n=p=12480 u=rothakur | paramiko [38.145.34.22] | Remote version/idstring: SSH-2.0-Cisco-2.0
+2020-05-05 16:12:51,770 p=12480 u=rothakur n=p=12480 u=rothakur | paramiko [38.145.34.22] | Connected (version 2.0, client Cisco-2.0)
+2020-05-05 16:12:52,006 p=12480 u=rothakur n=p=12480 u=rothakur | paramiko [38.145.34.22] | kex algos:['ecdh-sha2-nistp521', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp256', 'diffie-hellman-group14-sha1'] server key:['ssh-rsa'] client encrypt:['aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-gcm@openssh.com', 'aes256-gcm@openssh.com'] server encrypt:['aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-gcm@openssh.com', 'aes256-gcm@openssh.com'] client mac:['hmac-sha2-512', 'hmac-sha2-256', 'hmac-sha1'] server mac:['hmac-sha2-512', 'hmac-sha2-256', 'hmac-sha1'] client compress:['none'] server compress:['none'] client lang:[''] server lang:[''] kex follows?False
+2020-05-05 16:12:52,006 p=12480 u=rothakur n=p=12480 u=rothakur | paramiko [38.145.34.22] | Kex agreed: ecdh-sha2-nistp256
+2020-05-05 16:12:52,006 p=12480 u=rothakur n=p=12480 u=rothakur | paramiko [38.145.34.22] | HostKey agreed: ssh-rsa
+2020-05-05 16:12:52,006 p=12480 u=rothakur n=p=12480 u=rothakur | paramiko [38.145.34.22] | Cipher agreed: aes128-ctr
+2020-05-05 16:12:52,006 p=12480 u=rothakur n=p=12480 u=rothakur | paramiko [38.145.34.22] | MAC agreed: hmac-sha2-256
+2020-05-05 16:12:52,006 p=12480 u=rothakur n=p=12480 u=rothakur | paramiko [38.145.34.22] | Compression agreed: none
+2020-05-05 16:12:52,520 p=12480 u=rothakur n=p=12480 u=rothakur | paramiko [38.145.34.22] | kex engine KexNistp256 specified hash_algo <built-in function openssl_sha256>
+2020-05-05 16:12:52,896 p=12480 u=rothakur n=p=12480 u=rothakur | paramiko [38.145.34.22] | Switch to new keys ...
+2020-05-05 16:12:53,190 p=12480 u=rothakur n=p=12480 u=rothakur | paramiko [38.145.34.22] | userauth is OK
+2020-05-05 16:12:53,511 p=12480 u=rothakur n=p=12480 u=rothakur | paramiko [38.145.34.22] | Authentication (password) successful!
+2020-05-05 16:12:53,512 p=12480 u=rothakur n=p=12480 u=rothakur | paramiko [38.145.34.22] | [chan 0] Max packet in: 32768 bytes
+2020-05-05 16:12:53,818 p=12480 u=rothakur n=p=12480 u=rothakur | paramiko [38.145.34.22] | [chan 0] Max packet out: 32768 bytes
+2020-05-05 16:12:53,818 p=12480 u=rothakur n=p=12480 u=rothakur | paramiko [38.145.34.22] | Secsh channel 0 opened.
+2020-05-05 16:12:54,058 p=12480 u=rothakur n=p=12480 u=rothakur | paramiko [38.145.34.22] | [chan 0] Sesch channel 0 request ok
+2020-05-05 16:12:54,390 p=12480 u=rothakur n=p=12480 u=rothakur | paramiko [38.145.34.22] | [chan 0] Sesch channel 0 request ok
+2020-05-05 16:13:09,406 p=12475 u=rothakur n=ansible | <38.145.34.22> EXEC /bin/sh -c 'rm -f -r /home/rothakur/.ansible/tmp/ansible-local-124697e50ixo5/ansible-tmp-1588675370.5062802-224108460971755/ > /dev/null 2>&1 && sleep 0'
+2020-05-05 16:13:09,442 p=12469 u=rothakur n=ansible | [DEPRECATION WARNING]: Distribution fedora 30 on host 38.145.34.22 should use /usr/bin/python3, but is using /usr/bin/python for backward compatibility with 
+prior Ansible releases. A future Ansible release will default to using the discovered platform python for this host. See 
+https://docs.ansible.com/ansible/devel/reference_appendices/interpreter_discovery.html for more information. This feature will be removed in version 2.12. 
+Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2020-05-05 16:13:09,443 p=12469 u=rothakur n=ansible | changed: [38.145.34.22] => {
+    "after": [
+        {
+            "description": "Configured and Merged by Ansible-Network",
+            "enabled": true,
+            "mtu": 66,
+            "name": "GigabitEthernet0/0/0/0"
+        },
+        {
+            "enabled": true,
+            "mtu": 66,
+            "name": "GigabitEthernet0/0/0/1"
+        },
+        {
+            "enabled": true,
+            "mtu": 66,
+            "name": "GigabitEthernet0/0/0/2"
+        }
+    ],
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    },
+    "before": [
+        {
+            "description": "Configured and Merged by Ansible-Network",
+            "enabled": true,
+            "mtu": 66,
+            "name": "GigabitEthernet0/0/0/0"
+        },
+        {
+            "enabled": true,
+            "mtu": 66,
+            "name": "GigabitEthernet0/0/0/1"
+        },
+        {
+            "enabled": true,
+            "mtu": 66,
+            "name": "GigabitEthernet0/0/0/2"
+        }
+    ],
+    "changed": true,
+    "commands": [
+        "interface GigabitEthernet0/0/0/0",
+        "mtu 110",
+        "duplex half",
+        "interface GigabitEthernet0/0/0/1",
+        "description Configured and Merged by Ansible-Network",
+        "mtu 2800",
+        "speed 100",
+        "duplex full",
+        "shutdown"
+    ],
+    "invocation": {
+        "module_args": {
+            "config": [
+                {
+                    "description": "Configured and Merged by Ansible-Network",
+                    "duplex": "half",
+                    "enabled": true,
+                    "mtu": 110,
+                    "name": "GigabitEthernet0/0/0/0",
+                    "speed": null
+                },
+                {
+                    "description": "Configured and Merged by Ansible-Network",
+                    "duplex": "full",
+                    "enabled": false,
+                    "mtu": 2800,
+                    "name": "GigabitEthernet0/0/0/1",
+                    "speed": 100
+                }
+            ],
+            "running_config": null,
+            "state": "merged"
+        }
+    }
+}
+2020-05-05 16:13:09,444 p=12469 u=rothakur n=ansible | META: ran handlers
+2020-05-05 16:13:09,445 p=12469 u=rothakur n=ansible | META: ran handlers
+2020-05-05 16:13:09,446 p=12480 u=rothakur n=p=12480 u=rothakur | paramiko [38.145.34.22] | [chan 0] EOF sent (0)
+2020-05-05 16:13:09,448 p=12469 u=rothakur n=ansible | PLAY RECAP ***************************************************************************************************************************************************
+2020-05-05 16:13:09,448 p=12469 u=rothakur n=ansible | 38.145.34.22               : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-05-05 16:13:09,449 p=12480 u=rothakur n=p=12480 u=rothakur | paramiko [38.145.34.22] | EOF in transport thread
+2020-05-05 16:13:09,547 p=12480 u=rothakur n=ansible | shutdown complete
+2020-05-05 16:27:53,102 p=13629 u=rothakur n=ansible | [WARNING]: You are running the development version of Ansible. You should only run Ansible from "devel" if you are modifying the Ansible engine, or trying
+out features under development. This is a rapidly changing source of code and can become unstable at any point.
+
+2020-05-05 16:27:53,105 p=13629 u=rothakur n=ansible | ansible-playbook 2.10.0.dev0
+  config file = /home/rothakur/ansi-book/collections/iosxr/ansible.cfg
+  configured module search path = ['/home/rothakur/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /home/rothakur/ansible-collections/collections/ansible_collections/ansible-base/lib/ansible
+  executable location = /home/rothakur/ansible-collections/collections/ansible_collections/ansible-base/bin/ansible-playbook
+  python version = 3.7.3 (default, Mar 27 2019, 22:11:17) [GCC 7.3.0]
+2020-05-05 16:27:53,105 p=13629 u=rothakur n=ansible | Using /home/rothakur/ansi-book/collections/iosxr/ansible.cfg as config file
+2020-05-05 16:27:53,126 p=13629 u=rothakur n=ansible | host_list declined parsing /home/rothakur/ansi-book/collections/iosxr/inventory as it did not pass its verify_file() method
+2020-05-05 16:27:53,126 p=13629 u=rothakur n=ansible | script declined parsing /home/rothakur/ansi-book/collections/iosxr/inventory as it did not pass its verify_file() method
+2020-05-05 16:27:53,126 p=13629 u=rothakur n=ansible | auto declined parsing /home/rothakur/ansi-book/collections/iosxr/inventory as it did not pass its verify_file() method
+2020-05-05 16:27:53,129 p=13629 u=rothakur n=ansible | toml declined parsing /home/rothakur/ansi-book/collections/iosxr/inventory as it did not pass its verify_file() method
+2020-05-05 16:27:53,129 p=13629 u=rothakur n=ansible | [WARNING]:  * Failed to parse /home/rothakur/ansi-book/collections/iosxr/inventory with yaml plugin: Syntax Error while loading YAML.   expected '<document
+start>', but found '<scalar>'  The error appears to be in '/home/rothakur/ansi-book/collections/iosxr/inventory': line 2, column 1, but may be elsewhere in
+the file depending on the exact syntax problem.  The offending line appears to be:  [iosxr] 10.8.38.70 ^ here
+
+2020-05-05 16:27:53,130 p=13629 u=rothakur n=ansible |   File "/home/rothakur/ansible-collections/collections/ansible_collections/ansible-base/lib/ansible/inventory/manager.py", line 287, in parse_source
+    plugin.parse(self._inventory, self._loader, source, cache=cache)
+  File "/home/rothakur/ansible-collections/collections/ansible_collections/ansible-base/lib/ansible/plugins/inventory/yaml.py", line 105, in parse
+    raise AnsibleParserError(e)
+
+2020-05-05 16:27:53,130 p=13629 u=rothakur n=ansible | [WARNING]:  * Failed to parse /home/rothakur/ansi-book/collections/iosxr/inventory with ini plugin: /home/rothakur/ansi-book/collections/iosxr/inventory:16:
+Expected key=value, got: ansible_ssh_port: 22
+
+2020-05-05 16:27:53,130 p=13629 u=rothakur n=ansible |   File "/home/rothakur/ansible-collections/collections/ansible_collections/ansible-base/lib/ansible/inventory/manager.py", line 287, in parse_source
+    plugin.parse(self._inventory, self._loader, source, cache=cache)
+  File "/home/rothakur/ansible-collections/collections/ansible_collections/ansible-base/lib/ansible/plugins/inventory/ini.py", line 138, in parse
+    raise AnsibleParserError(e)
+
+2020-05-05 16:27:53,130 p=13629 u=rothakur n=ansible | [WARNING]: Unable to parse /home/rothakur/ansi-book/collections/iosxr/inventory as an inventory source
+
+2020-05-05 16:27:53,130 p=13629 u=rothakur n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2020-05-05 16:27:53,139 p=13629 u=rothakur n=ansible | [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+2020-05-05 16:27:53,335 p=13629 u=rothakur n=ansible | PLAYBOOK: merged.yaml ****************************************************************************************************************************************
+2020-05-05 16:27:53,335 p=13629 u=rothakur n=ansible | 1 plays in interfaces/merged.yaml
+2020-05-05 16:27:53,337 p=13629 u=rothakur n=ansible | PLAY [iosxr] *************************************************************************************************************************************************
+2020-05-05 16:27:53,373 p=13629 u=rothakur n=ansible | META: ran handlers
+2020-05-05 16:27:53,377 p=13629 u=rothakur n=ansible | TASK [Merge provided configuration with device configuration] ************************************************************************************************
+2020-05-05 16:27:53,377 p=13629 u=rothakur n=ansible | task path: /home/rothakur/ansi-book/collections/iosxr/interfaces/merged.yaml:7
+2020-05-05 16:27:54,166 p=13635 u=rothakur n=ansible | network_os is set to cisco.iosxr.iosxr
+2020-05-05 16:27:54,171 p=13635 u=rothakur n=ansible | <10.8.38.70> ESTABLISH LOCAL CONNECTION FOR USER: rothakur
+2020-05-05 16:27:54,171 p=13635 u=rothakur n=ansible | <10.8.38.70> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /home/rothakur/.ansible/tmp/ansible-local-13629xl3p_vr6/ansible-tmp-1588676274.170831-226968770681322 `" && echo ansible-tmp-1588676274.170831-226968770681322="` echo /home/rothakur/.ansible/tmp/ansible-local-13629xl3p_vr6/ansible-tmp-1588676274.170831-226968770681322 `" ) && sleep 0'
+2020-05-05 16:27:54,410 p=13635 u=rothakur n=ansible | <10.8.38.70> Attempting python interpreter discovery
+2020-05-05 16:27:54,410 p=13635 u=rothakur n=ansible | <10.8.38.70> EXEC /bin/sh -c 'echo PLATFORM; uname; echo FOUND; command -v '"'"'/usr/bin/python'"'"'; command -v '"'"'python3.7'"'"'; command -v '"'"'python3.6'"'"'; command -v '"'"'python3.5'"'"'; command -v '"'"'python2.7'"'"'; command -v '"'"'python2.6'"'"'; command -v '"'"'/usr/libexec/platform-python'"'"'; command -v '"'"'/usr/bin/python3'"'"'; command -v '"'"'python'"'"'; echo ENDFOUND && sleep 0'
+2020-05-05 16:27:54,416 p=13635 u=rothakur n=ansible | <10.8.38.70> EXEC /bin/sh -c '/usr/bin/python && sleep 0'
+2020-05-05 16:27:54,436 p=13635 u=rothakur n=ansible | Using module file /home/rothakur/ansible-collections/collections/ansible_collections/cisco/iosxr/plugins/modules/iosxr_interfaces.py
+2020-05-05 16:27:54,437 p=13635 u=rothakur n=ansible | <10.8.38.70> PUT /home/rothakur/.ansible/tmp/ansible-local-13629xl3p_vr6/tmp20kbi4c8 TO /home/rothakur/.ansible/tmp/ansible-local-13629xl3p_vr6/ansible-tmp-1588676274.170831-226968770681322/AnsiballZ_iosxr_interfaces.py
+2020-05-05 16:27:54,438 p=13635 u=rothakur n=ansible | <10.8.38.70> EXEC /bin/sh -c 'chmod u+x /home/rothakur/.ansible/tmp/ansible-local-13629xl3p_vr6/ansible-tmp-1588676274.170831-226968770681322/ /home/rothakur/.ansible/tmp/ansible-local-13629xl3p_vr6/ansible-tmp-1588676274.170831-226968770681322/AnsiballZ_iosxr_interfaces.py && sleep 0'
+2020-05-05 16:27:54,444 p=13635 u=rothakur n=ansible | <10.8.38.70> EXEC /bin/sh -c '/usr/bin/python /home/rothakur/.ansible/tmp/ansible-local-13629xl3p_vr6/ansible-tmp-1588676274.170831-226968770681322/AnsiballZ_iosxr_interfaces.py && sleep 0'
+2020-05-05 16:27:54,614 p=13640 u=rothakur n=ansible | <10.8.38.70> ESTABLISH PARAMIKO SSH CONNECTION FOR USER: root on PORT 22 TO 10.8.38.70
+2020-05-05 16:27:54,983 p=13640 u=rothakur n=p=13640 u=rothakur | paramiko [10.8.38.70] | starting thread (client mode): 0xb9856160
+2020-05-05 16:27:54,984 p=13640 u=rothakur n=p=13640 u=rothakur | paramiko [10.8.38.70] | Local version/idstring: SSH-2.0-paramiko_2.7.1
+2020-05-05 16:27:55,760 p=13640 u=rothakur n=p=13640 u=rothakur | paramiko [10.8.38.70] | Remote version/idstring: SSH-2.0-Cisco-2.0
+2020-05-05 16:27:55,760 p=13640 u=rothakur n=p=13640 u=rothakur | paramiko [10.8.38.70] | Connected (version 2.0, client Cisco-2.0)
+2020-05-05 16:27:56,098 p=13640 u=rothakur n=p=13640 u=rothakur | paramiko [10.8.38.70] | kex algos:['diffie-hellman-group14-sha1', 'diffie-hellman-group1-sha1'] server key:['ssh-dss'] client encrypt:['aes128-ctr', 'aes192-ctr', 'aes256-ctr'] server encrypt:['aes128-ctr', 'aes192-ctr', 'aes256-ctr'] client mac:['hmac-sha1'] server mac:['hmac-sha1'] client compress:['none'] server compress:['none'] client lang:[''] server lang:[''] kex follows?False
+2020-05-05 16:27:56,099 p=13640 u=rothakur n=p=13640 u=rothakur | paramiko [10.8.38.70] | Kex agreed: diffie-hellman-group14-sha1
+2020-05-05 16:27:56,099 p=13640 u=rothakur n=p=13640 u=rothakur | paramiko [10.8.38.70] | HostKey agreed: ssh-dss
+2020-05-05 16:27:56,099 p=13640 u=rothakur n=p=13640 u=rothakur | paramiko [10.8.38.70] | Cipher agreed: aes128-ctr
+2020-05-05 16:27:56,100 p=13640 u=rothakur n=p=13640 u=rothakur | paramiko [10.8.38.70] | MAC agreed: hmac-sha1
+2020-05-05 16:27:56,100 p=13640 u=rothakur n=p=13640 u=rothakur | paramiko [10.8.38.70] | Compression agreed: none
+2020-05-05 16:27:56,946 p=13640 u=rothakur n=p=13640 u=rothakur | paramiko [10.8.38.70] | kex engine KexGroup14 specified hash_algo <built-in function openssl_sha1>
+2020-05-05 16:27:57,358 p=13640 u=rothakur n=p=13640 u=rothakur | paramiko [10.8.38.70] | Switch to new keys ...
+2020-05-05 16:27:57,972 p=13640 u=rothakur n=p=13640 u=rothakur | paramiko [10.8.38.70] | userauth is OK
+2020-05-05 16:27:58,321 p=13640 u=rothakur n=p=13640 u=rothakur | paramiko [10.8.38.70] | Authentication (password) successful!
+2020-05-05 16:27:58,323 p=13640 u=rothakur n=p=13640 u=rothakur | paramiko [10.8.38.70] | [chan 0] Max packet in: 32768 bytes
+2020-05-05 16:27:58,584 p=13640 u=rothakur n=p=13640 u=rothakur | paramiko [10.8.38.70] | [chan 0] Max packet out: 32768 bytes
+2020-05-05 16:27:58,584 p=13640 u=rothakur n=p=13640 u=rothakur | paramiko [10.8.38.70] | Secsh channel 0 opened.
+2020-05-05 16:27:58,892 p=13640 u=rothakur n=p=13640 u=rothakur | paramiko [10.8.38.70] | [chan 0] Sesch channel 0 request ok
+2020-05-05 16:27:59,201 p=13640 u=rothakur n=p=13640 u=rothakur | paramiko [10.8.38.70] | [chan 0] Sesch channel 0 request ok
+2020-05-05 16:28:13,832 p=13635 u=rothakur n=ansible | <10.8.38.70> EXEC /bin/sh -c 'rm -f -r /home/rothakur/.ansible/tmp/ansible-local-13629xl3p_vr6/ansible-tmp-1588676274.170831-226968770681322/ > /dev/null 2>&1 && sleep 0'
+2020-05-05 16:28:13,850 p=13629 u=rothakur n=ansible | [DEPRECATION WARNING]: Distribution fedora 30 on host 10.8.38.70 should use /usr/bin/python3, but is using /usr/bin/python for backward compatibility with 
+prior Ansible releases. A future Ansible release will default to using the discovered platform python for this host. See 
+https://docs.ansible.com/ansible/devel/reference_appendices/interpreter_discovery.html for more information. This feature will be removed in version 2.12. 
+Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2020-05-05 16:28:13,851 p=13629 u=rothakur n=ansible | changed: [10.8.38.70] => {
+    "after": [
+        {
+            "description": "test for ansible",
+            "enabled": false,
+            "name": "Loopback888"
+        },
+        {
+            "description": "Configured and Merged by Ansible-Network",
+            "duplex": "half",
+            "enabled": true,
+            "mtu": 110,
+            "name": "GigabitEthernet0/0/0/0"
+        },
+        {
+            "enabled": false,
+            "name": "GigabitEthernet0/0/0/3"
+        },
+        {
+            "enabled": false,
+            "name": "GigabitEthernet0/0/0/4"
+        }
+    ],
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    },
+    "before": [
+        {
+            "description": "test for ansible",
+            "enabled": false,
+            "name": "Loopback888"
+        },
+        {
+            "description": "test interface",
+            "enabled": true,
+            "name": "GigabitEthernet0/0/0/0"
+        },
+        {
+            "enabled": false,
+            "name": "GigabitEthernet0/0/0/3"
+        },
+        {
+            "enabled": false,
+            "name": "GigabitEthernet0/0/0/4"
+        }
+    ],
+    "changed": true,
+    "commands": [
+        "interface GigabitEthernet0/0/0/0",
+        "description Configured and Merged by Ansible-Network",
+        "mtu 110",
+        "duplex half"
+    ],
+    "invocation": {
+        "module_args": {
+            "config": [
+                {
+                    "description": "Configured and Merged by Ansible-Network",
+                    "duplex": "half",
+                    "enabled": true,
+                    "mtu": 110,
+                    "name": "GigabitEthernet0/0/0/0",
+                    "speed": null
+                },
+                {
+                    "description": "Configured and Merged by Ansible-Network",
+                    "duplex": "full",
+                    "enabled": false,
+                    "mtu": 2800,
+                    "name": "GigabitEthernet0/0/0/1",
+                    "speed": 100
+                }
+            ],
+            "running_config": null,
+            "state": "merged"
+        }
+    }
+}
+2020-05-05 16:28:13,851 p=13629 u=rothakur n=ansible | META: ran handlers
+2020-05-05 16:28:13,852 p=13629 u=rothakur n=ansible | META: ran handlers
+2020-05-05 16:28:13,853 p=13640 u=rothakur n=p=13640 u=rothakur | paramiko [10.8.38.70] | [chan 0] EOF sent (0)
+2020-05-05 16:28:13,854 p=13629 u=rothakur n=ansible | PLAY RECAP ***************************************************************************************************************************************************
+2020-05-05 16:28:13,854 p=13629 u=rothakur n=ansible | 10.8.38.70                 : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-05-05 16:28:13,882 p=13640 u=rothakur n=p=13640 u=rothakur | paramiko [10.8.38.70] | EOF in transport thread
+2020-05-05 16:28:13,954 p=13640 u=rothakur n=ansible | shutdown complete

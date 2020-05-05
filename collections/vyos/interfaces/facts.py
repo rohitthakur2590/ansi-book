@@ -10,4 +10,4 @@
           - '!all'
           - '!min'
         gather_network_resources:
-          - l3_interfaces
+          - ospfv2

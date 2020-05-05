@@ -12,7 +12,7 @@
            parameters:
              router_id: '192.0.2.10'
            areas:
-             - area_id: '2'
+             - area_id: '0.0.0.2'
                export_list: 'export1'
                import_list: 'import1'
 
@@ -20,7 +20,7 @@
                  - address: '2001:db10::/32'
                  - address: '2001:db20::/32'
                  - address: '2001:db30::/32'
-             - area_id: '3'
+             - area_id: '0.0.0.3'
                range:
                  - address: '2001:db40::/32'
        state: merged

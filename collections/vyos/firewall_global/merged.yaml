@@ -17,6 +17,6 @@
             broadcast: true
        state: merged
      register: output
-     failed_when: "{{ output['before'].config_trap == true }}"
-   - debug:
-       var: output['before']['config_trap']
+     #failed_when: "{{ output['before'].config_trap == true }}"
+     #- debug:
+     #var: output['before']['config_trap']

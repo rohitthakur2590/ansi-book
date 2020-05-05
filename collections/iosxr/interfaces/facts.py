@@ -1,13 +1,13 @@
 ---
-- hosts: vyos
+- hosts: iosxr
   collections:
-    - vyos.vyos
+    - cisco.iosxr
   gather_facts: yes
   tasks:
     - name: facts
-      vyos_facts:
+      iosxr_facts:
         gather_subset:
           - '!all'
           - '!min'
         gather_network_resources:
-          - l3_interfaces
+          - interfaces
