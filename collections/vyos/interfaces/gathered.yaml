@@ -4,6 +4,6 @@
   collections:
     - vyos.vyos
   tasks:
-   - name: interfaces
+   - name: Gather the interfaces from running config
      vyos.vyos.vyos_interfaces: &id001
        state: gathered
