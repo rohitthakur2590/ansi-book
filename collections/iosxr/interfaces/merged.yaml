@@ -5,7 +5,7 @@
     - cisco.cisco.iosxr
   tasks: 
     - name: Merge provided configuration with device configuration
-      cisco.iosxr.iosxr_interfaces: &id001
+      iosxr_interfaces: &id001
         config:
           - name: GigabitEthernet0/0/0/0
             description: Configured and Merged by Ansible-Network

@@ -1,10 +1,8 @@
 - hosts: vyos
   gather_facts: false
   connection: network_cli
-  collections:
-    - vyos.vyos
   tasks:
-   - name: interfaces
+   - name: Render the interfaces to provide the commands
      vyos.vyos.vyos_interfaces: &id001
        config:
          - name: eth0

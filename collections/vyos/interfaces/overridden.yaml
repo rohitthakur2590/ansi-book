@@ -4,11 +4,11 @@
   collections:
     - vyos.vyos
   tasks:
-   - name: replace the interfaces config
+   - name: override the interfaces config
      vyos_interfaces: &id001
        config:
 
-          - name: eth1
+          - name: eth0
             description: Configured by Ansible - Interface eth1
             mtu: 1500
             speed: auto
@@ -25,8 +25,4 @@
               - vlan_id: 103
                 description: Eth1 - VIF 101
 
-          - name: eth2
-            description: Configured by Ansible - Interface 2 (ADMIN DOWN)
-            mtu: 600
-            enabled: false
-       state: replaced
+       state: overridden

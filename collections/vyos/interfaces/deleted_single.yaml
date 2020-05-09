@@ -1,20 +1,12 @@
 - hosts: vyos
   gather_facts: false
   connection: network_cli
-  collections:
-    - vyos.vyos
   tasks:
-   - name: ospfv2
-     vyos.vyos.vyos_ospfv2: &id001
+   - name: Delete the provided interfaces
+     vyos.vyos.vyos_interfaces: &id001
        config:
-         - log_adjacency_changes: 'detail'
-           max_metric:
-           default_information:
-           mpls_te:
-           neighbor:
-           redistribute:
-           parameters:
-           passive_interface:
-           ospf_area:
-
+         - name: eth1
+         - name: eth2
+         - name: eth3
+                   
        state: deleted
