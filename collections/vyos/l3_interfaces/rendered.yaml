@@ -4,7 +4,7 @@
   collections:
     - vyos.vyos
   tasks:
-   - name: layer-3 interfaces
+   - name: Render the configurtaion to provide commands
      vyos.vyos.vyos_l3_interfaces: &id001
        config:
           - name: eth1
