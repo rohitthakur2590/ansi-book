@@ -4,7 +4,7 @@
   collections:
     - vyos.vyos
   tasks:
-   - name: ospfv2
+   - name: Parse commands to provide argspec
      vyos.vyos.vyos_l3_interfaces: &id001
        running_config: "{{ lookup('file', 'vyos_l3_interfaces.cfg') }}"
        state: parsed

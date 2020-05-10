@@ -1,9 +1,7 @@
 - hosts: vyos
   gather_facts: false
   connection: network_cli
-  collections:
-    - vyos.vyos
   tasks:
-   - name: layer-2 interfaces
+   - name: gather layer-3 interfaces config
      vyos.vyos.vyos_l3_interfaces: &id001
        state: gathered

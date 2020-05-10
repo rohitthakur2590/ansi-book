@@ -1,64 +1,29 @@
 - hosts: vyos
   gather_facts: false
   connection: network_cli
-  collections:
-    - vyos.vyos
   tasks:
-   - name: ospfv2
-     vyos.vyos.vyos_ospfv2: &id001
+   - name: l3_interfaces
+     vyos.vyos.vyos_l3_interfaces: &id001
        config:
-         - log_adjacency_changes: 'detail'
-           max_metric:
-             router_lsa:
-               administrative: true
-               on_shutdown: 10
-               on_startup: 10
-           default_information:
-             originate:
-               always: true
-               metric: 10
-               metric_type: 2
-               route_map: 'ingress'
-           mpls_te:
-             enabled: true
-             router_address: '9.9.9.9'
-           auto_cost:
-             reference_bandwidth: 2
-           neighbor:
-             - neighbor_id: '7.7.7.7'
-               poll_interval: 10
-               priority: 2
-           redistribute:
-             - route_type: 'bgp'
-               metric: 10
-               metric_type: 2
-               # route_map: 'ingress'
-           passive_interface:
-             - 'eth1'
-             - 'eth5'
-             - 'eth6'
-           parameters:
-             router_id: '33.33.33.33'
-             opaque_lsa: true
-             rfc1583_compatibility: true
-             abr_type: 'cisco'
+          - name: eth1
+            ipv4:
 
-           ospf_area:
-             - area: '2'
-               area_type:
-                 normal: true
-               authentication: "plaintext-password"
-               shortcut: 'enable'
-             - area: '4'
-               area_type:
-                 stub:
-                  default_cost: 20
-               network:
-                 - address: '11.11.13.0/24'
-                 - address: '11.11.14.0/24'
-                 - address: '12.12.18.0/24'
-                 - address: '12.12.19.0/24'
-               range:
-                 - address: '1.1.2.0/24'
-                   cost: 10
+              - address: 192.0.21.10/24
+            ipv6:
+
+              - address: 2001:db8::10/32
+
+          - name: eth2
+            ipv4:
+
+              - address: 198.51.100.10/24
+            vifs:
+
+              - vlan_id: 101
+                ipv4:
+
+                  - address: 198.51.100.130/25
+                ipv6:
+
+                  - address: 2001:db8::20/32
        state: replaced
