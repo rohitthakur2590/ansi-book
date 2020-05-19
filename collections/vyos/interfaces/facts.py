@@ -10,4 +10,4 @@
           - '!all'
           - '!min'
         gather_network_resources:
-          - ospfv2
+          - interfaces
