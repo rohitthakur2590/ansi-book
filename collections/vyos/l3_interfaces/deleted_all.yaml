@@ -1,22 +1,10 @@
 - hosts: vyos
   gather_facts: false
   connection: network_cli
-  collections:
-    - vyos.vyos
   tasks:
-   - name: l3_interfaces
+   - name: Delete L3 interfaces
      vyos.vyos.vyos_l3_interfaces: &id001
        config:
-         - name: eth0
-           vifs:
-             - vlan_id: 101
-               ipv4:
-                 - address: 192.0.2.77/28
+         - name: eth2
          - name: eth1
-           ipv4:
-             - address: 203.0.113.65/26
-           vifs:
-             - vlan_id: 101
-             - vlan_id: 102
-                   
        state: deleted

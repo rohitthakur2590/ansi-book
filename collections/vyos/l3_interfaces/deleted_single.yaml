@@ -1,20 +1,20 @@
 - hosts: vyos
   gather_facts: false
   connection: network_cli
-  collections:
-    - vyos.vyos
   tasks:
-   - name: ospfv2
-     vyos.vyos.vyos_ospfv2: &id001
+   - name: Delete L3 interfaces
+     vyos.vyos.vyos_l3_interfaces: &id001
        config:
-         - log_adjacency_changes: 'detail'
-           max_metric:
-           default_information:
-           mpls_te:
-           neighbor:
-           redistribute:
-           parameters:
-           passive_interface:
-           ospf_area:
-
-       state: deleted
+         - name: eth2
+           vifs:
+             - vlan_id: 101
+               ipv4:
+                 - address: 192.0.2.77/28
+         - name: eth1
+           ipv4:
+             - address: 203.0.113.65/26
+           vifs:
+             - vlan_id: 101
+             - vlan_id: 102
+                   
+       state: deletedd
