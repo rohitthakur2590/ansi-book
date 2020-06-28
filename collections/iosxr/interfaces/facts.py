@@ -1,5 +1,5 @@
 ---
-- hosts: iosxr
+- hosts: iosxr-rdo
   collections:
     - cisco.iosxr
   gather_facts: yes
