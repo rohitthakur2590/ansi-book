@@ -1,0 +1,14 @@
+- hosts: iosxr
+  connection: netconf
+
+  tasks:
+  - name: include yang role
+    include_role:
+      name: ansible-network.yang
+      tasks_from: configure
+    vars:
+       yang_fetch_schema: true
+       yang_config_file: config/interfaces.json
+       yang_model_name: openconfig-interfaces
+       ansible_network_provider: cisco_iosxr
+       yang_netconf_enable_task_run: false

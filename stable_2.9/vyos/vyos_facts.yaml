@@ -1,0 +1,11 @@
+---
+- hosts: vyos
+  tasks:
+   - name: Gather vyos_facts
+     vyos_facts:
+       gather_subset:
+         - min
+       gather_network_resources:
+         - interfaces
+
+
