@@ -1,5 +1,6 @@
 [vyos]
 192.168.56.116
+ 
 
 [vyos:vars]
 ansible_network_os=vyos.vyos.vyos

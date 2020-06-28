@@ -1,0 +1,9 @@
+---
+- hosts: iosxr
+  connection: network_cli
+  gather_facts: false
+  tasks:
+  - name: enable netconf service on port 830
+    iosxr_netconf:
+      listens_on: 830
+      state: present
