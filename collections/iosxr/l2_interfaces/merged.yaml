@@ -1,0 +1,24 @@
+- hosts: iosxr
+  gather_facts: false
+  connection: network_cli
+  collections:
+    - cisco.cisco.iosxr
+  tasks: 
+    - name: Merge provided configuration with device configuration
+      cisco.iosxr.iosxr_l2_interfaces: &id001
+        config:
+          - name: GigabitEthernet0/0/0/1
+            native_vlan: 10
+            l2transport: true
+            l2protocol:
+              - pvst: tunnel
+              - cdp: forward
+            propagate: true
+
+          - name: GigabitEthernet0/0/0/3.900
+            q_vlan:
+              - 20
+              - 40
+          - name: GigabitEthernet0/0/0/4
+            native_vlan: 40
+        state: merged

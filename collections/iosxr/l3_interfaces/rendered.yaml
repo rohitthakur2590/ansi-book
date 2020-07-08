@@ -1,0 +1,28 @@
+- hosts: iosxr
+  gather_facts: false
+  connection: network_cli
+  collections:
+    - cisco.iosxr
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+  tasks:
+   - name: l3_interfaces
+     cisco.iosxr.iosxr_l3_interfaces: &id001
+       config:
+
+          - name: GigabitEthernet0/0/0/0
+            ipv4:
+
+              - address: 198.51.100.1/24
+
+          - name: GigabitEthernet0/0/0/1
+            ipv6:
+
+              - address: 2001:db8:0:3::/64
+            ipv4:
+
+              - address: 192.0.2.1/24
+
+              - address: 192.0.2.2/24
+                secondary: true
+       state: rendered

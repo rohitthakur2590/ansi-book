@@ -1,0 +1,10 @@
+[junos]
+10.8.38.38
+
+junos:vars]
+ansible_connection=netconf
+ansible_user=ansible
+ansible_password=@nsible
+ansible_network_os=junos
+#ansible_network_os=junipernetworks.junos.junos
+#netconf={'transport': 'netconf'}   

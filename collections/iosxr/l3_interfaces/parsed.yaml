@@ -1,0 +1,10 @@
+- hosts: iosxr
+  gather_facts: false
+  connection: network_cli
+  collections:
+    - cisco.iosxr
+  tasks:
+   - name: ospfv2
+     cisco.iosxr.iosxr_l3_interfaces: &id001
+       running_config: "{{ lookup('file', 'iosxr_l3_interfaces.cfg') }}"
+       state: parsed

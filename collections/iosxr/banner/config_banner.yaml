@@ -1,0 +1,15 @@
+---
+- hosts: iosxr-local
+  collections:
+    - cisco.iosxr
+  tasks:
+    - name: "Configure Banner"
+      iosxr_banner:
+        banner: login
+        text: |
+          This is another line
+          This is thord line
+          This is fourth line
+          This is fifth line
+          This machine is allocated to Rohit Thakur
+        state: present

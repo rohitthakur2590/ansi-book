@@ -1,0 +1,94 @@
+ansible-playbook 2.10.0.dev0
+  config file = /home/rothakur/ansi-book/collections/junos/ansible.cfg
+  configured module search path = ['/home/rothakur/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /home/rothakur/ansible-collections/collections/ansible_collections/ansible-base/lib/ansible
+  executable location = /home/rothakur/ansible-collections/collections/ansible_collections/ansible-base/bin/ansible-playbook
+  python version = 3.7.3 (default, Mar 27 2019, 22:11:17) [GCC 7.3.0]
+Using /home/rothakur/ansi-book/collections/junos/ansible.cfg as config file
+host_list declined parsing /home/rothakur/ansi-book/collections/junos/inventory as it did not pass its verify_file() method
+script declined parsing /home/rothakur/ansi-book/collections/junos/inventory as it did not pass its verify_file() method
+auto declined parsing /home/rothakur/ansi-book/collections/junos/inventory as it did not pass its verify_file() method
+Parsed /home/rothakur/ansi-book/collections/junos/inventory inventory source with ini plugin
+
+PLAYBOOK: issue.yaml *****************************************************************************************************************************************
+1 plays in issue.yaml
+
+PLAY [junos] *************************************************************************************************************************************************
+
+TASK [Gathering Facts] ***************************************************************************************************************************************
+task path: /home/rothakur/ansi-book/collections/junos/issue.yaml:1
+<38.145.32.45> ESTABLISH LOCAL CONNECTION FOR USER: rothakur
+<38.145.32.45> EXEC /bin/sh -c 'echo ~rothakur && sleep 0'
+<38.145.32.45> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /home/rothakur/.ansible/tmp/ansible-tmp-1592378479.267594-201681571254899 `" && echo ansible-tmp-1592378479.267594-201681571254899="` echo /home/rothakur/.ansible/tmp/ansible-tmp-1592378479.267594-201681571254899 `" ) && sleep 0'
+<38.145.32.45> Attempting python interpreter discovery
+<38.145.32.45> EXEC /bin/sh -c 'echo PLATFORM; uname; echo FOUND; command -v '"'"'/usr/bin/python'"'"'; command -v '"'"'python3.7'"'"'; command -v '"'"'python3.6'"'"'; command -v '"'"'python3.5'"'"'; command -v '"'"'python2.7'"'"'; command -v '"'"'python2.6'"'"'; command -v '"'"'/usr/libexec/platform-python'"'"'; command -v '"'"'/usr/bin/python3'"'"'; command -v '"'"'python'"'"'; echo ENDFOUND && sleep 0'
+<38.145.32.45> EXEC /bin/sh -c '/usr/bin/python && sleep 0'
+Using module file /home/rothakur/ansible-collections/collections/ansible_collections/ansible-base/lib/ansible/modules/system/setup.py
+<38.145.32.45> PUT /home/rothakur/.ansible/tmp/ansible-local-11894i0oy1de6/tmp3m37whur TO /home/rothakur/.ansible/tmp/ansible-tmp-1592378479.267594-201681571254899/AnsiballZ_setup.py
+<38.145.32.45> EXEC /bin/sh -c 'chmod u+x /home/rothakur/.ansible/tmp/ansible-tmp-1592378479.267594-201681571254899/ /home/rothakur/.ansible/tmp/ansible-tmp-1592378479.267594-201681571254899/AnsiballZ_setup.py && sleep 0'
+<38.145.32.45> EXEC /bin/sh -c '/usr/bin/python /home/rothakur/.ansible/tmp/ansible-tmp-1592378479.267594-201681571254899/AnsiballZ_setup.py && sleep 0'
+<38.145.32.45> EXEC /bin/sh -c 'rm -f -r /home/rothakur/.ansible/tmp/ansible-tmp-1592378479.267594-201681571254899/ > /dev/null 2>&1 && sleep 0'
+ok: [38.145.32.45]
+META: ran handlers
+
+TASK [set_fact] **********************************************************************************************************************************************
+task path: /home/rothakur/ansi-book/collections/junos/issue.yaml:6
+ok: [38.145.32.45] => {
+    "ansible_facts": {
+        "config_directory": "/home/rothakur/"
+    },
+    "changed": false
+}
+
+TASK [Syslog server check] ***********************************************************************************************************************************
+task path: /home/rothakur/ansi-book/collections/junos/issue.yaml:8
+<38.145.32.45> using connection plugin ansible.netcommon.netconf (was local)
+<38.145.32.45> ESTABLISH LOCAL CONNECTION FOR USER: rothakur
+<38.145.32.45> EXEC /bin/sh -c 'echo ~rothakur && sleep 0'
+<38.145.32.45> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /home/rothakur/.ansible/tmp/ansible-tmp-1592378480.866141-13721725614708 `" && echo ansible-tmp-1592378480.866141-13721725614708="` echo /home/rothakur/.ansible/tmp/ansible-tmp-1592378480.866141-13721725614708 `" ) && sleep 0'
+Using module file /home/rothakur/ansible-collections/collections/ansible_collections/junipernetworks/junos/plugins/modules/junos_config.py
+<38.145.32.45> PUT /home/rothakur/.ansible/tmp/ansible-local-11894i0oy1de6/tmp9s5ukvjb TO /home/rothakur/.ansible/tmp/ansible-tmp-1592378480.866141-13721725614708/AnsiballZ_junos_config.py
+<38.145.32.45> EXEC /bin/sh -c 'chmod u+x /home/rothakur/.ansible/tmp/ansible-tmp-1592378480.866141-13721725614708/ /home/rothakur/.ansible/tmp/ansible-tmp-1592378480.866141-13721725614708/AnsiballZ_junos_config.py && sleep 0'
+<38.145.32.45> EXEC /bin/sh -c '/usr/bin/python /home/rothakur/.ansible/tmp/ansible-tmp-1592378480.866141-13721725614708/AnsiballZ_junos_config.py && sleep 0'
+<38.145.32.45> EXEC /bin/sh -c 'rm -f -r /home/rothakur/.ansible/tmp/ansible-tmp-1592378480.866141-13721725614708/ > /dev/null 2>&1 && sleep 0'
+The full traceback is:
+  File "/tmp/ansible_junos_config_payload_9zoprlf5/ansible_junos_config_payload.zip/ansible_collections/junipernetworks/junos/plugins/module_utils/network/junos/junos.py", line 189, in load_configuration
+    return conn.load_configuration(
+  File "/tmp/ansible_junos_config_payload_9zoprlf5/ansible_junos_config_payload.zip/ansible_collections/ansible/netcommon/plugins/module_utils/network/common/netconf.py", line 77, in __rpc__
+    return self.parse_rpc_error(
+  File "/tmp/ansible_junos_config_payload_9zoprlf5/ansible_junos_config_payload.zip/ansible_collections/ansible/netcommon/plugins/module_utils/network/common/netconf.py", line 118, in parse_rpc_error
+    raise ConnectionError(
+fatal: [38.145.32.45]: FAILED! => {
+    "changed": false,
+    "invocation": {
+        "module_args": {
+            "backup": false,
+            "backup_options": null,
+            "check_commit": false,
+            "comment": "Ensure that appropriate Syslog server configured",
+            "confirm": 0,
+            "confirm_commit": false,
+            "lines": null,
+            "provider": {
+                "host": null,
+                "password": null,
+                "port": null,
+                "ssh_keyfile": null,
+                "timeout": null,
+                "transport": "netconf",
+                "username": null
+            },
+            "replace": null,
+            "rollback": null,
+            "src": "\"set system syslog archive size 300000\nset system syslog archive files 3\nset system syslog archive world-readable\nset system syslog user * any emergency\nset system syslog host 192.168.100.70 any any\nset system syslog host 192.168.100.70 interactive-commands any\nset system syslog host 192.168.100.70 facility-override local1\nset system syslog host 192.168.100.70 log-prefix firewall\nset system syslog host 192.168.100.70 source-address \"172.16.203.121\"\nset system syslog host 192.168.100.70 explicit-priority\nset system syslog file messages any critical\nset system syslog file messages authorization info\nset system syslog file default-log-messages structured-data\nset system syslog file sessions user info\nset system syslog file interactive-commands interactive-commands error\"\n",
+            "src_format": null,
+            "update": "merge",
+            "zeroize": false
+        }
+    },
+    "msg": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><rpc-reply xmlns=\"urn:ietf:params:xml:ns:netconf:base:1.0\" xmlns:junos=\"http://xml.juniper.net/junos/18.4R1/junos\" xmlns:nc=\"urn:ietf:params:xml:ns:netconf:base:1.0\" message-id=\"urn:uuid:ba4d3ac0-3930-43de-bfe3-3d740e8b2566\">\n<load-configuration-results>\n<rpc-error>\n<error-type>protocol</error-type>\n<error-tag>operation-failed</error-tag>\n<error-severity>error</error-severity>\n<error-message>missing terminating quote</error-message>\n<error-info>\n<bad-element>set system syslog archive size 300000</bad-element>\n</error-info>\n</rpc-error>\n<rpc-error>\n<error-type>protocol</error-type>\n<error-tag>operation-failed</error-tag>\n<error-severity>error</error-severity>\n<error-message>syntax error</error-message>\n<error-info>\n<bad-element>set system syslog archive size 300000</bad-element>\n</error-info>\n</rpc-error>\n<rpc-error>\n<error-type>protocol</error-type>\n<error-tag>operation-failed</error-tag>\n<error-severity>error</error-severity>\n<error-message>missing terminating quote</error-message>\n<error-info>\n<bad-element>error</bad-element>\n</error-info>\n</rpc-error>\n</load-configuration-results>\n</rpc-reply>"
+}
+
+PLAY RECAP ***************************************************************************************************************************************************
+38.145.32.45               : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+

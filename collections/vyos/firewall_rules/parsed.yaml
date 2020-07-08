@@ -1,0 +1,12 @@
+- hosts: vyos
+  gather_facts: false
+  connection: network_cli
+  collections:
+    - vyos.vyoss
+  tasks:
+    - name: parse the exisiting running configuration
+      vyos.vyos.vyos_firewall_rules: &parsed
+        running_config: "{{ lookup('file', 'vyos_config.cfg') }}"
+        state: parsed
+      register: result
+      tags: parsed

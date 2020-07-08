@@ -1,0 +1,13 @@
+- hosts: vyos
+  gather_facts: false
+  connection: network_cli
+  collections:
+    - vyos.vyos
+  tasks: 
+   - name: Merge the provided configuration.
+     vyos.vyos.vyos_firewall_rules: &deleted
+       config:
+         - afi: ipv4
+           rule_sets:
+             - name: 'Downlink'      
+       state: deleted

@@ -1,0 +1,11 @@
+- hosts: junos
+  gather_facts: true
+  collections:
+    - junipernetworks.junos
+  tasks: 
+    - name: get output for single command
+      register: result
+      junipernetworks.junos.junos_command:
+        commands: show version
+        #ansible.netcommon.cli_command:
+        #command: show version

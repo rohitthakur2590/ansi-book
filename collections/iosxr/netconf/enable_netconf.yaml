@@ -1,0 +1,9 @@
+---
+- hosts: iosxr-rdo
+  collections:
+    - cisco.iosxr
+  tasks:
+    - name: enable netconf service on port 830
+      iosxr_netconf:
+        listens_on: 830
+        state: present

@@ -1,0 +1,10 @@
+- hosts: iosxr-rdo
+  gather_facts: false
+  connection: network_cli
+  collections:
+    - cisco.iosxr
+  tasks:
+   - name: ospfv2
+     cisco.iosxr.iosxr_ospfv2: &id001
+       running_config: "router ospf 50\n cost 2\n area 11\n  default-cost 5\n !\n!"
+       state: parsed

@@ -1,0 +1,21 @@
+- hosts: vyos
+  gather_facts: false
+  connection: network_cli
+  collections:
+    - vyos.vyos
+  tasks:
+   - name: ospfv3
+     vyos.vyos.vyos_ospfv3: &id001
+       config:
+           redistribute:
+             - route_type: 'bgp'
+           parameters:
+             router_id: '10.10.10.10'
+           areas:
+             - area_id: '5'
+               range:
+                 - address: '2001:db8:11::/64'
+                   advertise: true
+                   not_advertise: true
+                 - address: '2001:db8:22::/64'
+                 - address: '2001:db8:32::/64'

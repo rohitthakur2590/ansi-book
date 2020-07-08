@@ -1,0 +1,12 @@
+---
+- hosts: ios
+  collections:
+    - cisco.ios
+  tasks:
+    - name: "Configure Banner"
+      ios_banner:
+        banner: login
+        text: |
+          This is ios lab machine
+
+        state: present

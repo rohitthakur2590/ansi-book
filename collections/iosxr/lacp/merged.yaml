@@ -1,0 +1,14 @@
+- hosts: iosxr
+  gather_facts: false
+  connection: network_cli
+  collections:
+    - cisco.iosxr
+  tasks:
+   - name: lacp
+     cisco.iosxr.iosxr_lacp: &id001
+       config:
+          system:
+            priority: 11
+            mac:
+              address: 00c1.4c00.bd15
+       state: merged

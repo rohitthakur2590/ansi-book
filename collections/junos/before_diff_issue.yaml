@@ -1,0 +1,85 @@
+- hosts: junos
+  gather_facts: true
+  connection: local
+  collections:
+    - junipernetworks.junos
+  tasks:
+    - set_fact:
+        config_directory: '{{ "/home/rothakur/" | expanduser }}'
+    - name: Syslog server check
+      junos_config:
+        src: '{{ config_directory }}/syslog_config.txt'
+        comment: Ensure that appropriate Syslog server configured
+      register: junos_output
+      diff: true
+    - debug:
+      var: junos_output1 ***************************************failed
+        #var: junos_output
+
+    - name: success
+      debug:
+        msg: Syslog server check - This check has passed with the following output({{ junos_output }})
+      when: not junos_output.changed
+
+    - name: failed
+      debug:
+        msg: Syslog server check - This check has failed with the following output({{ junos_output.diff.prepared }})
+      when: junos_output.changed
+
+
+    - name: Admin credentials check
+      junos_config:
+        src: '{{ config_directory }}/admin_user.txt'
+        comment: Ensure that Admin user havee been created
+      register: junos_output1
+      #- name: failed
+      #debug:
+      #var: junos_output1 ***************************************failed
+
+    - name: success
+      debug:
+        msg: Admin credentials check - This check has passed with the following output({{ junos_output }})
+      when: not junos_output.changed
+
+    - name: failed
+      debug:
+        msg: Admin credentials check - This check has failed with the following output({{ junos_output }})
+      when: junos_output.changed
+
+
+    - name: NTP Server check
+      junos_config:
+        src: '{{ config_directory }}/NTP_server.txt'
+        comment: Ensure that correct NTP servers has been configured
+      register: junos_output
+    - debug:
+        var: junos_output
+
+    - name: success
+      debug:
+        msg: NTP Server check  - This check has passed with the following output({{ junos_output }})
+      when: not junos_output.changed
+
+    - name: failed
+      debug:
+        msg: NTP Server check  - This check has failed with the following output({{ junos_output }})
+      when: junos_output.changed
+
+
+    - name: Idle timeout check
+      junos_config:
+        src: '{{ config_directory }}/idle_timeout.txt'
+        comment: Ensure that idle timeout has been configured
+      register: junos_output
+    - debug:
+        var: junos_output
+
+    - name: success
+      debug:
+        msg: Idle timeout check   - This check has passed with the following output({{ junos_output }})
+      when: not junos_output.changed
+
+    - name: failed
+      debug:
+        msg: Idle timeout check   - This check has failed with the following output({{ junos_output }})
+      when: junos_output.changed

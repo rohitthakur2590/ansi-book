@@ -1,0 +1,34 @@
+- hosts: vyos
+  gather_facts: false
+  connection: network_cli
+  collections:
+    - vyos.vyos
+  tasks: 
+   - name: Merge the provided configuration.
+     vyos.vyos.vyos_firewall_rules: &replaced
+       config:
+         - afi: 'ipv6'
+           rule_sets:
+           - name: 'UPLINK'
+             description: 'This is ipv6 specific rule-set'
+             default_action: 'accept'
+         - afi: 'ipv4'
+           rule_sets:
+             - name: 'INBOUND'
+               description: 'IPv4 INBOUND rule set'
+               default_action: 'accept'
+               rules:
+                 - number: 101
+                   action: 'accept'
+                   description: 'Rule 101 is configured by Ansible'
+                   ipsec: 'match-ipsec'
+                 - number: 104
+                   action: 'reject'
+                   description: 'Rule 104 is configured by Ansible'
+                   ipsec: 'match-none'
+                 
+       state: replaced              
+
+
+
+             
