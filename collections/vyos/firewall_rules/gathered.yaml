@@ -1,0 +1,12 @@
+- hosts: vyos
+  gather_facts: false
+  connection: network_cli
+  collections:
+    - vyos.vyos
+  tasks: 
+   - name: Merge the provided configuration.
+     vyos.vyos.vyos_firewall_rules: &gathered
+        config:
+        state: 'gathered'
+
+

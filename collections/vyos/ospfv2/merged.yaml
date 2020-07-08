@@ -61,4 +61,11 @@
                    cost: 10
                  - address: '192.0.4.0/24'
                    cost: 12
+    
        state: merged
+     register: ospf_work
+     check_mode: yes
+
+   - name: Print ospf routes
+     debug:
+       msg: OSPFv2 routes are  {{ ospf_work }}

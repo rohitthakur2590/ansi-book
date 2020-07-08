@@ -1,0 +1,9 @@
+- hosts: junos
+  gather_facts: true
+  collections:
+    - junipernetworks.junos
+  tasks: 
+    - name: get output for single command
+      register: result
+      junos_netconf:
+        command: show version

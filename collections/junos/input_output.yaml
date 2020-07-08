@@ -1,0 +1,26 @@
+---
+- hosts: junos
+  vars:
+    x: 45
+    my_name: "Rohit Thakur"
+    gather_facts: true
+  vars_prompt:
+    name: playbook
+    prompt: Enter the playbook
+    private: false
+  tasks:
+    - name: "Run playbook"
+      debug:
+        msg: "Playbook uploading: {{ playbook }}"
+    - name: "Demonstrate the debug with msg"
+      debug:
+       msg:
+         - "The value of x is: {{ x }}"
+         - "My Name is: {{ my_name }}"
+      when: true 
+    - name : "Demonstrate debug with var"
+      debug:
+        var: my_name
+
+
+

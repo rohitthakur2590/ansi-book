@@ -1,0 +1,16 @@
+- hosts: iosxr
+  connection: netconf
+  gather_facts: no
+  tasks:
+  - name: include yang role
+    include_role:
+      name: ansible-network.yang
+      tasks_from: fetch
+    loop:
+       - openconfig-interfaces
+       - openconfig-bgp
+    loop_control:
+      loop_var: yang_model_name
+    vars:
+       yang_netconf_enable_task_run: false
+       ansible_network_provider: cisco_iosxr

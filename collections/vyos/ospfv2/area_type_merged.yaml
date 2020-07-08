@@ -1,0 +1,24 @@
+- hosts: vyos
+  gather_facts: false
+  connection: network_cli
+  collections:
+    - vyos.vyos
+  tasks:
+   - name: ospfv2
+     vyos.vyos.vyos_ospfv2: &id001
+       config:
+           log_adjacency_changes: 'detail'
+           areas:
+             - area_id: '2'
+               area_type:
+                 normal: true
+             - area_id: '3'
+               area_type:
+                 nssa:
+                   set: true
+             - area_id: '4'
+               area_type:
+                 stub:
+                  default_cost: 20
+       state: merged
+

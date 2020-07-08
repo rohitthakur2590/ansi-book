@@ -1,0 +1,12 @@
+- hosts: vyos
+  gather_facts: false
+  connection: network_cli
+  collections:
+    - vyos.vyos
+  tasks: 
+   - name: Gather static_routes facts
+     vyos.vyos.vyos_facts:
+       gather_subset:
+         - default
+       gather_network_resources:
+         - firewall_rules

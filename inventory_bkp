@@ -1,0 +1,26 @@
+[iosxr]
+38.145.34.22
+#38.145.34.107
+#ec2-13-235-13-123.ap-south-1.compute.amazonaws.com
+#ec2-3-15-57-214.us-east-2.compute.amazonaws.com
+
+[iosxr:vars]
+ansible_network_os=iosxr
+ansible_user=ansible
+ansible_ssh_user=ansible
+ansible_ssh_port=22
+ansible_connection=netconf
+#ansible_connection=network_cli
+ansible_ssh_pass=Cisc*8753
+
+
+#ansible_user=admin
+#ansible_ssh_pass=TimantonRTR*211$
+#ansible_connection:  netconf
+#ansible_ssh_pass: Cisc*8753
+#ansible_ssh_private_key_file: ./access_key.pem
+
+
+
+
+

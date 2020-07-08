@@ -1,0 +1,9 @@
+- hosts: iosxr
+  gather_facts: false
+  connection: network_cli
+  collections:
+    - cisco.iosxr
+  tasks:
+   - name: Delete ios-xr interfaces
+     cisco.iosxr.iosxr_interfaces: &id001
+       state: deleted

@@ -1,0 +1,31 @@
+---
+ - hosts: ios
+   collections:
+     - cisco.ios
+   tasks:
+     - name: Merge provided configuration with device configuration
+       cisco.ios.ios_interfaces:
+         config:
+             - name: GigabitEthernet0/2
+               description: 'Configured and Merged by Ansible Network'
+               enabled: True
+             - name: GigabitEthernet0/3
+               description: 'Configured and Merged by Ansible Network'
+               mtu: 2800
+               enabled: False
+               speed: 100
+               duplex: full
+         state: merged
+       register: ios_interfaces
+       check_mode: yes
+     - name: print registed output
+       debug:
+         msg: ios_interfaces {{ ios_interfaces }}
+#    -name : Run config interfaces  task in check_mode (yes)
+#    ios_interfaces:
+#      config: " {{ interfaces }}"
+#      state: merged
+#    register: net_interfaces
+#    check_mode: yes
+
+

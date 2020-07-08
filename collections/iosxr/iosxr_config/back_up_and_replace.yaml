@@ -1,0 +1,35 @@
+---
+ - hosts: iosxr-local
+   connection: local
+   collections:
+     - cisco.iosxr
+   tasks:
+     - name: "Inventory variables"
+       debug:
+         msg:
+           - Network os is {{ ansible_network_os }}
+           - Inventory host name is {{ inventory_hostname }}
+         
+     - name: Backup device configuration
+       iosxr_config:
+         backup: yes
+         backup_options: 
+           filename: "{{ inventory_hostname }}.cfg"
+       when: ansible_network_os == 'cisco.iosxr.iosxr'
+       # when: backup is defined and ansible_network_os == 'cisco.iosxr.iosxr'
+
+     - name: Replace running config with provided config
+       iosxr_config:
+         src: "./backup/{{ inventory_hostname }}.cfg"
+         replace: config
+         backup: no
+         backup_options:
+           filename: no.cfgs
+       when: ansible_network_os == 'cisco.iosxr.iosxr'
+
+#       iosxr_config:
+#         src: /Users/Donny/backup/[config-name].cfg
+#         replace: config
+#         backup: no
+#         backup_options:
+#           filename: no.cfgs

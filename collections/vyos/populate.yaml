@@ -1,0 +1,11 @@
+- hosts: vyos
+  gather_facts: false
+  connection: network_cli
+  collections:
+    - vyos.vyos
+  tasks:
+    - name: Configure loopback interface
+      vyos_config:
+        save: True
+        lines:
+          - set interfaces dummy dum1 address '10.0.1.1/24'

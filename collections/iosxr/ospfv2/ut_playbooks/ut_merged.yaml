@@ -1,0 +1,19 @@
+- hosts: iosxr-rdo
+  gather_facts: false
+  connection: network_cli
+  collections:
+    - cisco.iosxr
+  tasks: 
+    - name: Merge provided configuration with device configuration
+      cisco.iosxr.iosxr_ospfv2: &id001
+        config:
+
+          processes:
+            - process_id: 30
+              areas:
+                - area_id: 11
+                  default_cost: 5
+
+              cost: 2
+              default_metric: 10
+        state: merged

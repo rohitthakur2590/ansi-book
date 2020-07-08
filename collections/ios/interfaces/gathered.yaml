@@ -1,0 +1,10 @@
+---
+- hosts: ios
+  collections:
+    - cisco.ios
+  tasks:
+    - name: Merge provided configuration with device configuration
+      cisco.ios.ios_interfaces:
+        config:
+        state: gathered
+      check_mode: yes

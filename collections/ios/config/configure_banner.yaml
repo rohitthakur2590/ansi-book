@@ -1,0 +1,17 @@
+---
+ - hosts: ios
+   collections:
+     - cisco.ios
+   tasks:
+#     - name: Backup configuration for cisco ios device
+#       ios_config:
+#         backup: yes
+#         backup_options:
+#           filename: "{{ inventory_hostname }}.cfg"
+     - name: Configure banner with "test"
+       ios_banner:
+         banner: login
+         text: |
+
+         Login Banner
+         state: present
